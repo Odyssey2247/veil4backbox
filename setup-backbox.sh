@@ -119,7 +119,7 @@ func_package_deps(){
 
       echo -e ${YELLOW}'\n\n [*] Installing (Wine) i386 Binaries'${RESET}
       #--mod for backbox-----------------------------------------------------------------------------
-      sudo ${arg} apt-get -y install wine1.8
+      sudo ${arg} apt-get install wine1.8
       tmp="$?"
       [ "${tmp}" -ne "0" ] && echo -e " ${RED}[ERROR] Failed To Install Wine x86_64... Exit Code: ${tmp}.${RESET}\n" && exit 1
     else
