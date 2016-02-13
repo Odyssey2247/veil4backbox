@@ -134,11 +134,11 @@ func_package_deps(){
   echo -e ${YELLOW}'\n\n [*] Installing Dependencies'${RESET}
   if [ "${os}" == "ubuntu" ] || [ "${os}" == "debian" ] || [ "${os}" == "kali" ]; then
     sudo ${arg} apt-get -y install mingw-w64 monodoc-browser monodevelop mono-mcs wine unzip ruby golang wget git \
-                                   python python-crypto python-pefile python-pip ca-certificates ttf-mscorefonts-installer libp11-kit-gnome-keyring:i386
+                                   python python-crypto python-pefile python-pip ca-certificates ttf-mscorefonts-installer libp11-kit-gnome-keyring:i386 winbind
   elif [ "${os}" == "fedora" ] || [ "${os}" == "rhel" ] || [ "${os}" == "centos" ]; then
     sudo ${arg} dnf -y install mingw64-binutils mingw64-cpp mingw64-gcc mingw64-gcc-c++ mono-tools-monodoc monodoc \
                                monodevelop mono-tools mono-core wine unzip ruby golang wget git python python-crypto python-pefile \
-                               python-pip ca-certificates msttcore-fonts-installer
+                               python-pip ca-certificates msttcore-fonts-installer winbind
   fi
   tmp="$?"
   [ "${tmp}" -ne "0" ] && echo -e " ${RED}[ERROR] Failed To Install Dependencies... Exit Code: ${tmp}.${RESET}\n" && exit 1
